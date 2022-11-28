@@ -20,7 +20,7 @@ public class task2 {
     static Map<String, Double> map = new HashMap<>();
 
     public static void main(String[] args) {
-        File folder = new File("C:\\Users\\Дима\\Downloads\\task2\\violation");
+        File folder = new File("task2\\violation");
         File[] listOfFiles = folder.listFiles();
 
         assert listOfFiles != null;

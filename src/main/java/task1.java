@@ -14,7 +14,7 @@ import org.w3c.dom.NodeList;
 public class task1 {
 
     public static void main(String[] args) {
-        String filePath = "C:\\Users\\Дима\\Downloads\\task2\\file.xml";
+        String filePath = "task2\\file.xml";
         File xmlFile = new File(filePath);
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder;
