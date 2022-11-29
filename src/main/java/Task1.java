@@ -11,7 +11,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class task1 {
+public class Task1 {
 
     public static void main(String[] args) {
         String filePath = "task2\\file.xml";

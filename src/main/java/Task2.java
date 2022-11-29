@@ -16,26 +16,29 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-public class task2 {
-    static Map<String, Double> map = new HashMap<>();
+public class Task2 {
+
+     Map<String, Double> map = new HashMap<>();
 
     public static void main(String[] args) {
         File folder = new File("task2\\violation");
         File[] listOfFiles = folder.listFiles();
-
+        Task2 task2 = new Task2();
         assert listOfFiles != null;
         for (File file : listOfFiles) {
             if (file.isFile()) {
-                readFile(new File(file.getName()));
+                task2.readFile(new File(file.getName()));
             }
         }
-        createXml();
+        task2.createXml();
+
+
     }
 
-    private static void readFile(File newFile) {
+    private void readFile(File newFile) {
         JSONParser jsonParser = new JSONParser();
         try {
-            Object obj = jsonParser.parse(new FileReader("violation\\" + newFile));
+            Object obj = jsonParser.parse(new FileReader("task2\\violation\\" + newFile));
             JSONArray jsonArray = (JSONArray) obj;
             for (Object o : jsonArray) {
                 JSONObject jsonObject = (JSONObject) o;
@@ -52,7 +55,7 @@ public class task2 {
         }
     }
 
-    private static void createXml() {
+    private void createXml() {
         sortMap();
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -81,7 +84,7 @@ public class task2 {
         }
     }
 
-    private static void sortMap() {
+    private void sortMap() {
         map = map.entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).collect(Collectors.toMap(
                 Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
         System.out.println(map);
